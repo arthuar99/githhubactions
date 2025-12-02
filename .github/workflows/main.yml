@@ -13,5 +13,11 @@ jobs:
       - name: print a welcome message
         run: echo "Welcome to our first githubaction"
 
+      - name: checkout repository
+        uses: actions/checkout@v6.0.0
+
+      - name: List repository files
+        run: ls -la
+
 
     
