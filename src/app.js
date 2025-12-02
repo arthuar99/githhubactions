@@ -36,9 +36,29 @@ module.exports = { product, welcome };
 
 // Optional: simple CLI so you can run this file directly:
 if (require.main === module) {
-  const [,, argA, argB] = process.argv;
-  const a = Number(argA || 0);
-  const b = Number(argB || 0);
-  console.log(product(a, b));
+  const args = process.argv.slice(2);
+  const cmd = args[0];
+
+  if (cmd === 'welcome') {
+    const name = args[1] || '';
+    const greeting = args[2] || 'Welcome';
+    console.log(welcome(name, greeting));
+  } else if (cmd === 'product') {
+    const a = Number(args[1] || 0);
+    const b = Number(args[2] || 0);
+    console.log(product(a, b));
+  } else {
+    // Backwards-compatible: if user passed two numbers without specifying 'product'
+    if (!isNaN(Number(cmd)) && args.length >= 2) {
+      const a = Number(cmd);
+      const b = Number(args[1]);
+      console.log(product(a, b));
+    } else {
+      // Show a simple usage help
+      console.log('Usage:');
+      console.log('  node src/app.js product <a> <b>        # compute a * b');
+      console.log('  node src/app.js welcome [name] [greeting]  # show a welcome message');
+    }
+  }
 }
 
