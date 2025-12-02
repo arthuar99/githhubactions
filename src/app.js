@@ -8,6 +8,9 @@
  * @returns {number} product of a and b
  */
 function product(a, b) {
+  if (typeof a !== 'number' || typeof b !== 'number') {
+    throw new Error('Inputs must be numbers');
+  }
   return a * b;
 }
 
