@@ -1,0 +1,15 @@
+ name: eweb
+
+ on:
+   push:
+      branches:
+        - main
+
+ jobs:
+   exmaple-main:
+     runs-on: ubuntu-latest
+
+
+     steps: 
+       - name: print this my new esystem
+         run: echo "show the issues of my new system"
