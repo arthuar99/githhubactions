@@ -12,18 +12,24 @@ function product(a, b) {
 }
 
 /**
- * Returns a welcome message. If a name is provided, include it: "Welcome, <name>!";
- * otherwise just "Welcome!".
+ * Returns a welcome message. If a name is provided, include it: "<greeting>, <name>!";
+ * otherwise just "<greeting>!". Greeting defaults to 'Welcome'.
  * @param {string} [name]
+ * @param {string} [greeting='Welcome']
  * @returns {string}
  */
-function welcome(name = '') {
+function welcome(name = '', greeting = 'Welcome') {
   if (typeof name !== 'string') {
-    // Keep behavior simple — coerce to string for now
     name = String(name);
   }
+  if (typeof greeting !== 'string') {
+    greeting = String(greeting);
+  }
   name = name.trim();
-  return name ? `Welcome, ${name}!` : 'Welcome!';
+  greeting = greeting.trim();
+  // default back to 'Welcome' if greeting becomes empty
+  if (!greeting) greeting = 'Welcome';
+  return name ? `${greeting}, ${name}!` : `${greeting}!`;
 }
 
 module.exports = { product, welcome };
