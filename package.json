@@ -1,0 +1,19 @@
+{
+  "name": "githhubactions",
+  "version": "1.0.0",
+  "description": "Simple project to demonstrate GitHub Actions and a product function",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "node src/app.js",
+    "test": "node test/test_product.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/arthuar99/githhubactions"
+  },
+  "author": "arthuar99",
+  "license": "MIT",
+  "engines": {
+    "node": ">=14"
+  }
+}
