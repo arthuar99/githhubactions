@@ -20,7 +20,7 @@ function product(a, b) {
 function welcome(name = '') {
   if (typeof name !== 'string') {
     // Keep behavior simple — coerce to string for now
-    name = String(name);
+    // name = String(name);
   }
   name = name.trim();
   return name ? `Welcome, ${name}!` : 'Welcome!';
