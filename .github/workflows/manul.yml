@@ -1,9 +1,18 @@
 on:
-    workflow_dispatch:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: "Choose environment"
+        required: true
+        default: "staging"
+        type: choice
+        options:
+          - staging
+          - production
 
 jobs:
-    manul-job:
-        runs-on: ubuntu-latest
-        steps:
-            - name: Deploy to production
-              run: echo "Deploying to production..."
+  manual-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to chosen environment
+        run: echo "Deploying to ${{ github.event.inputs.environment }}..."
