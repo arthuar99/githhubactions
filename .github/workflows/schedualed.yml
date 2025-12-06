@@ -1,0 +1,16 @@
+#chicking on the website on the first day of every month
+
+on:
+    schedule:
+        - cron: '0 9 1 * *'
+    
+jobs:
+    test-job:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v6.0.0
+
+            - name: Run tests
+              run: npm test
